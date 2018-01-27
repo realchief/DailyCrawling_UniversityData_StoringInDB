@@ -1,0 +1,15 @@
+{
+    "depth": 2,
+    "exclude_urls": ["video","authors","event", "login", "visit", "tours", "postdocs", "blog", "news", "search", "agenda", "faculty","people","student", "staff", "calendar" ,"stories", "catalog" , "library", "references", "forum", "policies", "research", "campuslife","tickets","sports","services","career","jobs","employment","tag","category","cat","sort","sortcol","article","articles","seminar","topic","alumni","pageid","portalid","campusmap","locations"],
+    "keywords": [
+        {
+            "words": ["scholarship", "financial aid","scholarhsips",  "Financial assistance" , "financial aid", "teaching assistantship" , "research assistantship" , "fellowship"],
+            "min":1
+        },
+         {
+            "words": ["scholarship", "financial aid"],
+            "min": 1
+        }
+    ],
+    "hyperlink_check" :false
+}
