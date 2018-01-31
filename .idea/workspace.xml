@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d83b6767-0604-4394-b8b5-cfcfb2cdd28c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/scrapy2018-01-27.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawling.txt" afterPath="$PROJECT_DIR$/crawling.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/keywords/config.py" afterPath="$PROJECT_DIR$/keywords/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/keywords/spiders/findWords.py" afterPath="$PROJECT_DIR$/keywords/spiders/findWords.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/time_log.log" afterPath="$PROJECT_DIR$/logs/time_log.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/schools.txt" afterPath="$PROJECT_DIR$/schools.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scrapy.py" afterPath="$PROJECT_DIR$/scrapy.py" />
-    </list>
+    <list default="true" id="d83b6767-0604-4394-b8b5-cfcfb2cdd28c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -282,7 +273,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38702703" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36864865" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36864865" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29237556" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />

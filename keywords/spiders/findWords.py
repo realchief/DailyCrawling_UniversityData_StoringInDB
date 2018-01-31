@@ -51,7 +51,7 @@ class FindWords(CrawlSpider):
     else:
         allowed_domains_regex.append(r'(.+|^)http://{0}.{1}(/.+)'.format(extracted_url.domain, extracted_url.suffix))
 
-    # rules = (Rule(LxmlLinkExtractor(allow=(allowed_domains_regex), deny=(exclude_urls)), callback="parse_items", follow=True), )
+    rules = (Rule(LxmlLinkExtractor(allow=(allowed_domains_regex), deny=(exclude_urls)), callback="parse_items", follow=True), )
 
     start_urls.append(all_urls)
 
@@ -72,9 +72,6 @@ class FindWords(CrawlSpider):
         }
 
     remove_hyperlinks = re.compile(r'<a\s.*</a>', re.IGNORECASE)
-
-    def start_requests(self):
-        yield scrapy.Request(url=self.all_urls, callback=self.parse_items)
 
     def parse_items(self, response):
         min_words = False
