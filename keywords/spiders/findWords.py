@@ -2,10 +2,6 @@ import scrapy
 import re
 import tldextract
 import logging
-import pdb
-import requests
-import scrapy
-# from scrapy import Request
 
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
@@ -21,6 +17,15 @@ class FindWords(CrawlSpider):
     Config.load()
     name = "fw"
 
+    # set logger
+    logger = logging.getLogger('keywords')
+    logger.setLevel(logging.DEBUG)
+    fh = logging.FileHandler('logs/scrapy' + str(datetime.utcnow().date()) + '.log')
+    fh.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    fh.setFormatter(formatter)
+    logger.addHandler(fh)
+
     # config variables
     exclude_urls = Config.config['exclude_urls']
     min_keywords = Config.config['keywords'][0]['min']
@@ -28,7 +33,7 @@ class FindWords(CrawlSpider):
     keywords_conf = Config.config['keywords'][0]['words']
     keywords_s_conf = Config.config['keywords'][1]['words']
     check_hyperlinks = Config.config['hyperlink_check']
-    # all_urls = []
+    all_urls = []
     allowed_domains = []
     start_urls = []
     current_url = 0
@@ -38,6 +43,9 @@ class FindWords(CrawlSpider):
     for w in keywords_conf:
         if w in exclude_urls:
             exclude_urls.remove(w)
+
+    with open('./logs/time_log.log', 'a') as time_log:
+        time_log.write('Crawled domain,Started,Finished\n')
 
     # load urls from file
     with open('./crawling.txt', 'r') as ad:
@@ -51,9 +59,20 @@ class FindWords(CrawlSpider):
     else:
         allowed_domains_regex.append(r'(.+|^)http://{0}.{1}(/.+)'.format(extracted_url.domain, extracted_url.suffix))
 
+    # test code
+    # if extracted_url.subdomain != "":
+    #     allowed_domains_regex.append('{0}.{1}.{2}'.format(extracted_url.subdomain, extracted_url.domain, extracted_url.suffix))
+    # else:
+    #     allowed_domains_regex.append('{0}.{1}'.format(extracted_url.domain, extracted_url.suffix))
+
+    # crawling rules
     rules = (Rule(LxmlLinkExtractor(allow=(allowed_domains_regex), deny=(exclude_urls)), callback="parse_items", follow=True), )
 
     start_urls.append(all_urls)
+    logger.info('start crawling: {0}'.format(all_urls))
+
+    with open('./logs/time_log.log', 'a') as time_log:
+        time_log.write('{0},{1},'.format(all_urls, str(datetime.now())))
 
     # regex patterns for keywords
     if check_hyperlinks:
@@ -72,7 +91,6 @@ class FindWords(CrawlSpider):
         }
 
     remove_hyperlinks = re.compile(r'<a\s.*</a>', re.IGNORECASE)
-
     def parse_items(self, response):
         min_words = False
         min_words_s = False
@@ -94,7 +112,6 @@ class FindWords(CrawlSpider):
         all_keywords.extend(self.keywords_s_conf)
 
         hasKeywordInURL = False
-
         for kw in all_keywords:
             if kw in response.url:
                 hasKeywordInURL = True

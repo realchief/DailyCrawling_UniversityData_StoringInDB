@@ -2,7 +2,6 @@ import csv
 import os
 import time
 import tldextract
-import requests
 
 for dirpath, dirnames, files in os.walk('./logs/'):
     if files:
@@ -18,11 +17,11 @@ with open('schools.txt', 'r') as roch:
             if line[0].startswith('http'):
                 fqdn = line[0]
             else:
-                fqdn = 'https://{0}/'.format(line[1])
+                fqdn = 'http://{0}/'.format(line[1])
             with open('crawling.txt', 'w') as dom:
                 dom.write(fqdn)
-            os.system('scrapy crawl fw -o results_gre11.csv')
+            os.system('scrapy crawl fw -o results_gre.csv')
 
-            time.sleep(10)
+            time.sleep(20)
 
 os.system('rm crawling.txt')
