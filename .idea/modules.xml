@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/OldCrawler.iml" filepath="$PROJECT_DIR$/.idea/OldCrawler.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/crawler.iml" filepath="$PROJECT_DIR$/.idea/crawler.iml" />
+>>>>>>> e1102567adea5c78bacb5bb589ec4e42a1c3c031
     </modules>
   </component>
 </project>
