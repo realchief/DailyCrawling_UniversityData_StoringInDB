@@ -23,6 +23,6 @@ with open('schools.txt', 'r') as roch:
                 dom.write(fqdn)
             os.system('scrapy crawl fw -o results_gre11.csv')
 
-            time.sleep(10000)
+            time.sleep(10)
 
 os.system('rm crawling.txt')
