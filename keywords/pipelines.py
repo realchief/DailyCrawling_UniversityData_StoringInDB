@@ -1,17 +1,39 @@
 from datetime import datetime
 import logging
+import MySQLdb
 
 
 class KeywordsPipeline(object):
+    def __init__(self):
+        self.conn = MySQLdb.connect(
+            host='localhost',
+            user='root',
+            passwd='root',
+            db='Driver',
+            charset="utf8",
+            use_unicode=True
+        )
+        self.cursor = self.conn.cursor()
 
-    # logfile_path = './logs/scrapy_log_' + str(datetime.utcnow().date()) + '.log'
-    # logger = logging.getLogger('keywords')
-    # logger.setLevel(logging.INFO)
-    # fh = logging.FileHandler(logfile_path)
-    # fh.setLevel(logging.INFO)
-    # formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    # fh.setFormatter(formatter)
-    # logger.addHandler(fh)
+    def process_item(self, item, spider):
+        try:
+            self.cursor.execute(
+                """INSERT INTO currency 
+                (DOMAIN, FQDN, URL, title, description, keywords, hyperlinks, keywordInURL) 
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""", (
+                    item['DOMAIN'].encode('utf-8'), item['FQDN'].encode('utf-8'),
+                    item['URL'].encode('utf-8'), item['title'].encode('utf-8'),
+                    item['description'].encode('utf-8'), item['keywords'].encode('utf-8'),
+                    item['hyperlinks'].encode('utf-8'), item['keywordInURL'].encode('utf-8')
+                )
+            )
+
+            self.conn.commit()
+
+        except MySQLdb.Error, e:
+            print("Error %d: %s" % (e.args[0], e.args[1]))
+
+        return item
 
     def open_spider(self, spider):
         pass

@@ -20,7 +20,7 @@ with open('schools.txt', 'r') as roch:
                 fqdn = 'http://{0}/'.format(line[1])
             with open('crawling.txt', 'w') as dom:
                 dom.write(fqdn)
-            os.system('scrapy crawl fw -o results_gre.csv')
+            os.system('scrapy crawl fw -o results_gre22.csv')
 
             time.sleep(20)
 
