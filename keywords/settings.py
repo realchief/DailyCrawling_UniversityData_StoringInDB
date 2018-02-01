@@ -32,7 +32,7 @@ DNSCACHE_ENABLED = True
 AJAXCRAWL_ENABLED = True
 
 ITEM_PIPELINES = {
-    'keywords.pipelines.KeywordsPipeline': 1
+    'keywords.pipelines.KeywordsPipeline': 300,
 }
 
 # spider middlewares
@@ -63,3 +63,4 @@ FIELDS_TO_EXPORT = [
 ]
 
 CSV_DELIMITER = ','
+

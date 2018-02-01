@@ -8,7 +8,7 @@ for dirpath, dirnames, files in os.walk('./logs/'):
     if files:
         os.system('rm ./logs/*')
 
-with open('schools1.txt', 'r') as roch:
+with open('schools.txt', 'r') as roch:
     Config.load()
     domains = csv.reader(roch, delimiter=",")
     for line in domains:

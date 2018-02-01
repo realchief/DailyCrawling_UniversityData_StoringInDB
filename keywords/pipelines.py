@@ -23,7 +23,7 @@ class KeywordsPipeline(object):
         try:
             self.cursor.execute(
                 """INSERT INTO std_univ_courses_py 
-                (DOMAIN, FQDN, URL, title, description, keywords, hyperlinks, keywordInURL) 
+                (domain, fqdn, url, title, description, keywords, hyperlinks, keywordinurl) 
                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""", (
                     self.xstr(item['DOMAIN']).encode('utf-8'), self.xstr(item['FQDN']).encode('utf-8'),
                     self.xstr(item['URL']).encode('utf-8'), self.xstr(item['title']).encode('utf-8'),
