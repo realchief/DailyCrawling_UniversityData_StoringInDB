@@ -11,5 +11,7 @@
             "min": 0
         }
     ],
-    "hyperlink_check" :false
+    "hyperlink_check" :false,
+    "write_file" : true,
+    "write_table" : false
 }

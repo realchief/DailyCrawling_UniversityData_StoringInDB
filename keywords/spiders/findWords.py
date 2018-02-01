@@ -33,6 +33,8 @@ class FindWords(CrawlSpider):
     keywords_conf = Config.config['keywords'][0]['words']
     keywords_s_conf = Config.config['keywords'][1]['words']
     check_hyperlinks = Config.config['hyperlink_check']
+    write_file = Config.config['write_file']
+    write_table = Config.config['write_table']
     all_urls = []
     allowed_domains = []
     start_urls = []
@@ -91,6 +93,7 @@ class FindWords(CrawlSpider):
         }
 
     remove_hyperlinks = re.compile(r'<a\s.*</a>', re.IGNORECASE)
+
     def parse_items(self, response):
         min_words = False
         min_words_s = False
