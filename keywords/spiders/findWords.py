@@ -46,8 +46,8 @@ class FindWords(CrawlSpider):
         if w in exclude_urls:
             exclude_urls.remove(w)
 
-    with open('./logs/time_log.log', 'a') as time_log:
-        time_log.write('Crawled domain,Started,Finished\n')
+    # with open('./logs/time_log.log', 'a') as time_log:
+    #     time_log.write('Crawled domain,Started,Finished\n')
 
     # load urls from file
     with open('./crawling.txt', 'r') as ad:
@@ -174,6 +174,7 @@ class FindWords(CrawlSpider):
             item['keywords'] = hxs.xpath('//meta[@name=\'keywords\']/@content').extract()
             item['hyperlinks'] = 0
             item['keywordInURL'] = hasKeywordInURL
+
             if self.check_hyperlinks:
                 item['hyperlinks'] = len(response_keywords)
 

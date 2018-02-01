@@ -12,6 +12,6 @@
         }
     ],
     "hyperlink_check" :false,
-    "write_file" : true,
-    "write_table" : false
+    "write_file" : false,
+    "write_table" : true
 }

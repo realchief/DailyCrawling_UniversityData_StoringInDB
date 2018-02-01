@@ -12,7 +12,7 @@ with open('schools1.txt', 'r') as roch:
     Config.load()
     domains = csv.reader(roch, delimiter=",")
     for line in domains:
-        if line[0] != 'domain':
+        if line and line[0] != 'domain':
             fqdn = ''
             domain = tldextract.extract(line[0])
             result = domain.domain
