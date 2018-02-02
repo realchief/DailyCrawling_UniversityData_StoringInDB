@@ -8,7 +8,7 @@ class KeywordsPipeline(object):
         self.conn = MySQLdb.connect(
             host='localhost',
             user='root',
-            passwd='vinay',
+            passwd='root',
             db='Driver',
             charset="utf8",
             use_unicode=True
